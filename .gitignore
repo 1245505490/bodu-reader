@@ -1,0 +1,22 @@
+node_modules/
+dist/
+release/
+.local-fixtures/
+test-results/
+*.tsbuildinfo
+*.log
+
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

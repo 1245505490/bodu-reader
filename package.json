@@ -1,0 +1,101 @@
+{
+  "name": "bodu-reader",
+  "productName": "礴读",
+  "version": "0.2.1",
+  "description": "简洁、离线的 Markdown 阅读与编辑软件",
+  "author": "礴读",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.cjs",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "test:e2e": "node tests/electron.e2e.cjs",
+    "test:editing": "node tests/editing.e2e.cjs",
+    "test:uninstall": "pwsh -NoProfile -File tests/uninstall.ps1",
+    "icons": "node scripts/icons.cjs",
+    "dist": "npm run build && npm run icons && electron-builder --win nsis --x64 --publish never"
+  },
+  "build": {
+    "appId": "cn.bodu.reader",
+    "productName": "礴读",
+    "artifactName": "Bodu-Setup-${version}-${arch}.${ext}",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "electronLanguages": [
+      "zh-CN",
+      "en-US"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico",
+      "executableName": "Bodu",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "selectPerMachineByDefault": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "礴读",
+      "installerLanguages": [
+        "zh_CN"
+      ],
+      "language": "2052",
+      "include": "build/installer.nsh",
+      "deleteAppDataOnUninstall": false,
+      "uninstallerIcon": "build/icon.ico",
+      "uninstallDisplayName": "礴读",
+      "runAfterFinish": false
+    }
+  },
+  "devDependencies": {
+    "@codemirror/commands": "6.11.1",
+    "@codemirror/lang-markdown": "6.5.2",
+    "@codemirror/language": "6.13.1",
+    "@codemirror/search": "6.7.2",
+    "@codemirror/state": "6.7.6",
+    "@codemirror/view": "6.43.14",
+    "@playwright/test": "1.64.1",
+    "@types/katex": "0.16.8",
+    "@types/markdown-it": "14.2.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "codemirror": "6.0.2",
+    "dompurify": "3.4.17",
+    "electron": "44.9.0",
+    "electron-builder": "26.15.3",
+    "highlight.js": "11.12.0",
+    "katex": "0.19.0",
+    "lucide-react": "1.59.0",
+    "markdown-it": "15.0.3",
+    "mermaid": "12.2.0",
+    "png-to-ico": "3.0.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  },
+  "dependencies": {
+    "iconv-lite": "0.7.3"
+  }
+}
