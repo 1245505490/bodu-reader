@@ -6,9 +6,9 @@
 
 ## 安装与开始
 
-仓库存放源码，安装包和运行目录需执行下方的 `npm run dist` 生成，不包含在 Git 文件中。
+从 [GitHub Releases](https://github.com/1245505490/bodu-reader/releases/latest) 下载 Windows 安装包，或直接下载 [礴读 0.2.1 x64 安装包](https://github.com/1245505490/bodu-reader/releases/download/v0.2.1/Bodu-Setup-0.2.1-x64.exe)。同页提供 SHA-256 校验文件。
 
-运行生成的 `release/Bodu-Setup-0.2.1-x64.exe`，按中文向导选择安装位置。安装包包含完整运行环境，安装和使用不需要联网。程序目前未配置商业代码签名证书。
+运行 `Bodu-Setup-0.2.1-x64.exe`，按中文向导选择安装位置。安装包包含完整运行环境，安装和使用不需要联网。程序目前未配置商业代码签名证书。
 
 不安装也可直接运行 `release/win-unpacked/Bodu.exe`，请保留整个目录。开发时执行 `npm run dev`，界面修改会自动更新；主进程修改需重启。开发窗口支持 F12 / Ctrl+Shift+I 打开调试工具。
 
